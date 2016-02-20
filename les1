@@ -1,0 +1,54 @@
+<html>
+<head>
+    <script type="text/javascript">
+"use strict";
+/*jslint browser: true*/
+function rekening(){
+    this.getal1 = 0;
+    this.getal2 = 0;
+
+    this.Optellen = function(){
+        return this.getal1 + this.getal2;
+    }
+    this.Vermeernig = function(){
+        return this.getal1 * this.getal2;
+    }
+    this.Delen = function(){
+        return this.getal1 / this.getal2;
+    }
+    this.Min = function(){
+        return this.getal1 - this.getal2;
+    }
+}
+var waarde = new rekening();
+waarde.getal1 = 1;
+waarde.getal2 = 2;    
+var uitkomst;
+        var uitkomstArray;
+       var Lijst= [];
+        Lijst[0]=  waarde.Optellen();    
+        Lijst[1]=  waarde.Min();   
+        Lijst[2]=  waarde.Vermeernig(); 
+        Lijst[3] = waarde.Delen();
+        
+uitkomst = waarde.Optellen();        
+console.log("Uitkomst optel= "+ uitkomst);
+
+uitkomst = waarde.Min();        
+console.log("Uitkomst min= "+ uitkomst);
+
+        
+console.log("Uitkomst vermeenigvuldegen= "+ waarde.Vermeernig());
+
+     
+console.log("Uitkomst delen= "+ waarde.Delen());
+console.log("in de console");
+        console.log("In een array: " + Lijst[0] + " " + Lijst[1] + " " + Lijst[2]+ " " + Lijst[3]);
+        uitkomstArray = Lijst[0] + Lijst[1];
+        console.log("Basis Optellen array waarden: " + Lijst[0] + " + " + Lijst[1] + " = " + uitkomstArray);
+
+    </script>
+    </head>
+    <body>
+    </body>
+</html>
