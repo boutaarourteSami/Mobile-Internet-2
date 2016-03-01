@@ -1,0 +1,67 @@
+<html>
+<head>
+    <link rel="stylesheet" href="les2.css">
+    <script type="text/javascript">
+"use strict";
+/*jslint browser: true*/
+var t;
+var s = 0;
+var b = ("<div class='black'></div>");
+var w = ("<div class='white'></div>");
+var br = ("<br><br><br>");
+
+var pb = ("<div class='pionB'></div>");
+var pw = ("<div class='pionW'></div>");
+for (t = 1; t < 9; t++) {
+    if (t % 2 === 0) {
+        document.write(b);
+       if(t === 8)
+       {
+       document.write(br);
+           if (s % 2 ===0)
+           {
+            t = 1;
+           }
+           else{
+           t = 0;
+           }
+          
+           s++;
+       }
+        }
+     
+    else {
+        document.write(w);
+            if(t === 8)
+       {
+       document.write(br);
+           if (s % 2 ===0)
+           {
+            t = 1;
+           }
+           else{
+            t = 0;
+           }
+         
+           s++;
+       }
+    }
+    if (s === 7)
+    {
+    t = 8;
+    }
+}
+
+
+//for (i = 1; i < 9; i++)
+{
+document.write("<p>" + i +"</p>");
+}
+
+
+    </script>
+    </head>
+    <body>
+       
+    </body>
+</html>

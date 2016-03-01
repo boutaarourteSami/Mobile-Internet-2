@@ -1,0 +1,25 @@
+
+div{
+width: 3em;
+    height: 3em;
+    float:left;
+    z-index: 0;
+}
+div.white{
+background-color: rgba(255, 255, 255, 1); 
+}
+div.black{
+background-color: rgba(0, 0, 0, 1); 
+}
+div.pionW
+{
+    background-color: rgba(255, 255, 255, 0.7); 
+border-radius: 10em;
+    z-index: 1;
+}
+div.pionB
+{
+    background-color: rgba(0, 0, 0, 0.7); 
+border-radius: 10em;
+    z-index: 1;
+}
