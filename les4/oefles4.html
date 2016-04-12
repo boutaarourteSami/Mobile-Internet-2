@@ -1,0 +1,31 @@
+<!doctype html>
+    <html>
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/jquery-1.12.1.min.js"></script>
+    <script type="text/javascript">
+        "use strict";
+        /*global $ */
+        $(document).ready(function () {
+            
+            var aantal = $("li").length;
+            $("<h3> Aantal plaatsen: " + aantal + "<\/h3>").prependTo("body");
+            $("li:eq(0)").append(Math.random() * 10) + 1 +"°C");
+            $("li:eq(1)").append(" 15°C");
+            $("li:eq(2)").append(" 25°C");
+            $("li:eq(3)").append(" 35°C");
+            $("li:eq(4)").append(" 29°C");
+           
+        });
+    </script>
+</head>
+<body>
+    <ul>
+    <li>Brussel</li>
+        <li>Parijs</li>
+        <li>Nador</li>
+        <li>New York</li>
+        <li>Tokyo</li>
+    </ul>
+</body> 
+    </html>
