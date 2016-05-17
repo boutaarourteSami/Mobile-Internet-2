@@ -1,0 +1,37 @@
+<!doctype html>
+    <html>
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/jquery-1.12.1.min.js"></script>
+    <script type="text/javascript">
+        "use strict";
+        /*global $ */
+        var cont;
+        var plaats = ["Brussel", "Parijs", "Nador", "New York", "Tokyo"];
+        for(var i = 0; i < 5; i++)
+            {
+                cont += "<li id="+ plaats[i] +"> " + plaats[i] + "<\/li>";
+                $("ul").html(cont);
+            }
+        
+        $(document).ready(function () {
+             $("div").show("slow");
+            $("div").click(function(){$("div").css({"visibility": "hidden"});});
+            
+        
+            //var aantal = $("li").length;
+           // $("<h3> Aantal plaatsen: " + aantal + "<\/h3>").prependTo("body");
+           // $("li:eq(0)").append(Math.random() * 10) + 1 +"°C");
+           // $("li:eq(1)").append(" 15°C");
+           // $("li:eq(2)").append(" 25°C");
+          //  $("li:eq(3)").append(" 35°C");
+          //  $("li:eq(4)").append(" 29°C");
+           
+        });
+    </script>
+</head>
+<body>
+    <div style="text-align:center">	<img src="http://img.mobypicture.com/4784e2f8d760413b945c4e135be20278_large.jpg" ></div>
+
+</body> 
+    </html>
