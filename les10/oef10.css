@@ -1,0 +1,21 @@
+div{
+    background-color: none;
+    
+}
+div.pres{
+    top: 35vh;
+    width: 75vw;
+    position: absolute;
+    right: 12.5vw;
+    color: rgba(255, 255, 255, 1);
+}
+div.picdoor{
+    position: absolute;
+   
+    
+    background-image: url(pictures/opend.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100vw;
+    height: 100vh;
+}
