@@ -1,0 +1,458 @@
+<html>
+<head>
+    <title> ColorQueen </title>
+ <link rel="icon" href="pictures/icon.ico">
+    <link rel="stylesheet" href="styleCM.css">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" >
+		<script src="http://code.jquery.com/jquery-1.11.2.min.js"> </script>
+		<link rel="stylesheet" href="themes/colorQueen.css" />
+    <link rel="stylesheet" href="themes/colorQueen.min.css"/>
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+		<script type="text/javascript" src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"> </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="../js/jquery-1.12.1.min.js"></script>
+     <script type="text/javascript">
+         
+"use strict";
+/*global $, console, openDatabase */
+
+var tm;       
+var disp;
+var colorr;
+var id;
+var c;
+var combinationIA = [];
+var t = 0;
+var x = 0;
+var d;
+var xi = 0;
+var i = 0;
+var v = 4;         
+var score = 0;
+ var chp;   
+var hs;
+var aupa = document.createElement('audio');
+             aupa.setAttribute('src', 'sounds/sou.ogg'); 
+var beam  = document.createElement('audio');
+             beam.setAttribute('src', 'sounds/beam.ogg'); 
+var glow =  document.createElement('audio');
+             glow.setAttribute('src', 'sounds/glow.ogg');         
+var mutie = false;         
+
+function bottonss() {
+   
+    score = 0;
+    x = 0;
+    i = 0;
+    xi = 0;
+    $('#hm').css({'visibility': 'hidden'});
+    $('#red').css({'visibility': 'hidden'});
+    $('#green').css({'visibility': 'hidden'});
+    $('#bleu').css({'visibility': 'hidden'});
+    addRondomComb();
+}
+         function mute(){
+              mutie = !(mutie);
+                
+                     aupa.muted = mutie;
+                     beam.muted = mutie;
+                     glow.muted = mutie;
+             
+         }
+         function saven(){
+                 hs.transaction(function (tx){
+                 tx.executeSql('INSERT INTO highscores (score) VALUES (?)', [score]);
+                      
+                 });
+             toonSaven();
+             }
+          function toonSaven(){
+                 hs.transaction(function (tx){
+                 tx.executeSql('SELECT * FROM highscores order by score desc', [], function(tx,results){ 
+                     
+                     chp = results.rows.item(0).score;
+                              
+                     
+                     $("#bestscore").html("best: " + chp);
+                     
+                      
+                     $("#hghs").html("Champion's score: " + chp);
+                 }, null);
+                     });
+                 
+             }
+       
+ var timer = function() {
+     v = x;
+     clearInterval(tm);
+     $("#tmr").html("time: " + v);
+     setTimeout(function(){
+     tm = setInterval( function(){
+        
+        
+   
+    if(v === 0)
+     {
+         clearInterval(tm);
+         if(chp < score)
+                       {
+                           $("#bestscore").css({'text-shadow': "0 1vw 1vw rgba(155, 25, 55, 1)"});
+                           $("#bestscore").css({'box-shadow': "0 0 5vw rgba(155, 25, 55, 1)"});
+                           
+                       }
+           saven();
+         toonSaven();
+         $("#bck").addClass("retry");
+             $('#hm').css({'visibility': 'visible'});
+          beam.play();
+            
+     }
+     else
+     {
+             v--; 
+             if(v < 2)
+             {
+                 $("#tmr").css({'color': 'rgba(125, 0, 35, 1)'});
+                 $("#tmr").css({'background-color': 'rgba(255, 255, 255, 1)'});
+                 $("#tmr").css({'box-shadow': '0px 0px 7vw rgba(125, 0, 35, 0.7);'});
+                       
+             }
+             else
+             {
+                 $("#tmr").css({'color': 'rgba(255, 255, 255, 1)'}); 
+                 $("#tmr").css({'background-color': 'rgba(0, 0, 0, 1)'});
+                 $("#tmr").css({'box-shadow': '0px 0px 3vw rgba(125, 0, 35, 0.7);'});
+                       
+              }
+        $("#tmr").html("time: " + v);
+               
+      }
+    }, 1000);
+    return tm;}, 100);
+                    
+}
+       
+function addRondomComb() {
+    $("#tmr").css({'visibility': 'hidden'});
+    $('#red').css({'visibility': 'hidden'});
+    $('#green').css({'visibility': 'hidden'});
+    $('#bleu').css({'visibility': 'hidden'});
+    c = Math.floor(Math.random() * 3) + 1;
+    combinationIA.push(c);
+            
+    x = combinationIA.length;  
+    $("#str").css('animation-duration', (41 - (2 * x) +"s" ));
+    $("#cld").css('animation-duration', (41 - ((2 * x) + 8)) + "s");
+    setTimeout(display(), 1000);
+    
+                    
+}
+function display(){
+  
+    disp =  setInterval( function(){
+               v = 4 + x;
+        
+      switch(combinationIA[i]){
+     //add class
+               
+        case 1: $("#bck").addClass("challengR");
+              glow.play();
+                setTimeout(function(){$("#bck").removeClass();}, 500);
+        break;
+        case 2: $("#bck").addClass("challengG");
+              glow.play();
+                setTimeout(function(){$("#bck").removeClass();}, 500);
+        break;
+        case 3: $("#bck").addClass("challengB");
+              glow.play();
+                setTimeout(function(){$("#bck").removeClass();}, 500);
+        break;
+    }
+    if(i === x - 1)
+        {
+            clearInterval(disp);
+           setTimeout(function(){
+           $("#bck").removeClass();                       
+           $('#red').css({'visibility': 'visible'} );
+           $('#green').css({'visibility': 'visible'} );
+           $('#bleu').css({'visibility': 'visible'} );
+           $("#tmr").css({'visibility': 'visible'});
+           i = 0;
+           
+            timer();
+                                 }, 1500);
+        }
+      else
+      {
+           i++;  
+      }
+    
+                }, 1000);
+    
+}
+
+    
+         $(document).ready(function(){
+             
+             score = 0;
+            hs = openDatabase('hscore', '1.0', 'Highscore', 0.01 * 1024 * 1024);
+             
+             hs.transaction(function (tx){
+                 console.log('voor aanmaak db');
+                 tx.executeSql('CREATE TABLE IF NOT EXISTS highscores (score)', [],
+                    function (tx, results) {
+                        console.log("ok create");
+                    },
+                    function (tx, error) {                     
+                        console.log("pblem create");
+                    }
+                 );
+                 console.log('na aanmaak db');
+                 tx.executeSql('SELECT count(*) as countt from highscores where score like ?', [score], 
+                               function (tx, results) {
+                     console.log("select werkt");
+                   if(results.rows.item(0).countt === 0) {
+                         
+                       tx.executeSql("INSERT INTO highscores (score) VALUES (?)", [score], function (tx,results){
+                             
+                         console.log("ok");
+                         }, function (tx, error) {
+                            console.log("pblem");
+                         });
+                     }
+                 }, function (tx, error) {
+                     
+                     console.log("pblem");
+                 });
+                 toonSaven();
+             });
+             
+            
+        
+              $("#buttn").click(function() {
+                bottonss();
+                  toonSaven();
+                  
+                });
+             $("#hm").click(function() {
+                 xi = 0;
+                 v = 4;
+                 i = 0;
+                 //timer();
+                 $("#scoore").empty();
+                 score = 0;
+                 $("#scoore").html("score: 0");
+                 combinationIA = [];
+                 x = combinationIA.length;
+                 $("#str").css('animation-duration', (41 - ((2 * x) + 8)) + "s");
+                 $("#cld").css('animation-duration', (41 - (2 * x) +"s" ));
+                 $("#bck").removeClass("retry");
+                 $("#tmr").css({'color': 'rgba(125, 0, 35, 1)'});
+                 $("#tmr").css({'background-color': 'rgba(255, 255, 255, 1)'});
+                 $("#tmr").css({'box-shadow': '0px 0px 7vw rgba(125, 0, 35, 0.7);'});
+                 $("#bestscore").css({'text-shadow': "none"});
+                 $("#bestscore").css({'box-shadow': "none"});
+                           
+                       
+                           
+                      
+                 //addRondomComb();
+             });
+             $('#red').click(function() {
+                 aupa.play();
+            
+               if(combinationIA[xi] === 1){
+                   xi++;
+                   
+                  
+                   v += 1;
+                  
+                   
+                  if(xi === x)
+                  {
+                     clearInterval(timer);
+                      
+                     xi = 0;
+                     score++;
+                     $("#scoore").html("score: " + score);
+                     v = 4;
+                      
+                     setTimeout(addRondomComb(), 500); 
+                    
+                  }
+                  
+             
+               }
+               else
+               {
+                   $("#tmr").css({'visibility': 'hidden'});
+                   $("#bck").addClass("retry");
+                    $('#hm').css({'visibility': 'visible'});
+                    beam.play();
+                   if(chp < score)
+                       {
+                           $("#bestscore").css({'text-shadow': "0 1vw 1vw rgba(155, 25, 55, 1)"});
+                           $("#bestscore").css({'box-shadow': "0 0 5vw rgba(155, 25, 55, 1)"});
+                           
+                       }
+                     saven();
+                   toonSaven();
+                 
+               }
+             
+            
+              });
+         
+      
+         
+           $('#green').click(function() {
+               aupa.play();
+              
+               if(combinationIA[xi] === 2)                   
+               {
+                  xi++;
+                 
+                  v += 1;
+                 
+                  if(xi === x)
+                  {
+                     clearInterval(timer);
+                    
+                     xi = 0;
+                     score++;
+                     $("#scoore").html("score: " + score);
+                     v = 4;
+                      
+                    setTimeout(addRondomComb(), 500); 
+                 }
+               
+             
+              } 
+             else
+             {
+              $("#tmr").css({'visibility': 'hidden'});
+              $("#bck").addClass("retry");
+                 $('#hm').css({'visibility': 'visible'});
+                  beam.play();
+                 if(chp < score)
+                       {
+                           $("#bestscore").css({'text-shadow': "0 1vw 1vw rgba(155, 25, 55, 1)"});
+                           $("#bestscore").css({'box-shadow': "0 0 5vw rgba(155, 25, 55, 1)"});
+                           
+                       }
+              saven();
+                 toonSaven();
+                 
+             }     
+            });
+                          
+       
+         
+           $('#bleu').click(function() {
+               aupa.play();
+               
+                if(combinationIA[xi] === 3){
+                  xi++;
+                 
+                  v += 1;
+                  
+                  if(xi === x)
+                  {
+                     clearInterval(timer);
+                     
+                     xi = 0;
+                     score++;
+                     $("#scoore").html("score: " + score);
+                     v = 4;
+                      
+                     setTimeout(addRondomComb(), 500);  
+                 }
+                
+             
+            }
+            else
+            {
+              $("#tmr").css({'visibility': 'hidden'});
+              $("#bck").addClass("retry");
+                $('#hm').css({'visibility': 'visible'});
+                 beam.play();
+                 if(chp < score)
+                       {
+                           $("#bestscore").css({'text-shadow': "0 1vw 1vw rgba(155, 25, 55, 1)"});
+                           $("#bestscore").css({'box-shadow': "0 0 5vw rgba(155, 25, 55, 1)"});
+                           
+                       }
+                  saven();
+                toonSaven();
+                
+            }     
+            });
+             
+         });
+
+
+       
+
+    </script>
+    </head>
+    <body>
+        <div data-role="page" id="home" >
+			
+			<div data-role="content" style="padding: 0;"> 
+                <div class="titli"></div>
+				<div class="cbt"><a href="#gme" data-icon="arrow-r" data-transition="slidedown" data-role="button" data-inline="true" data-theme="a"  data-mini="true" id="buttn" style="box-shadow: 0px 0px 15vh rgba(135, 115, 195, 0.9);">START</a>
+                </div>
+                <a href="#HighSc"  data-transition="turn" data-role="button" data-inline="true" data-theme="a"  data-mini="true">SCORE</a>
+                
+                 <div class="cloud"></div>
+        <div class="moon"></div>
+        <div class="star"></div>
+			</div>
+			
+
+		</div>
+        
+        <div data-role="page" id="HighSc" >
+			
+			<div data-role="content" style="padding: 0;"> 
+				<a href="#home"  data-transition="turn" data-icon="back" data-role="button"  data-inline="true" data-theme="a"  data-mini="true" >MAIN</a>
+                
+                <div class="highs" id="hghs"></div>
+                
+                 <div class="cloud1"></div>
+        <div class="moon"></div>
+        <div class="star1"></div>
+			</div>
+			
+
+		</div>
+        
+        <div data-role="page" id="gme" >
+			
+			<div data-role="content" id="game" style="padding: 0;">
+               
+                <a href="#home" style="z-index: 4; position: absolute;" id="hm" data-transition="turn" data-icon="back" data-role="button"  data-inline="true" data-theme="a"  data-mini="true" >MAIN</a>
+                <div class="timer" id="tmr"></div>
+				<div id="bck" class="back"></div>
+                <div id='red' class='bred' ></div>
+                <div id='green' class='bgreen' ></div>
+                <div id='bleu' class='bblauw' ></div>
+                 <div id='scoore' class='thescore' > score: 0 </div>
+                <div id='bestscore' class='thebscore' > best: 0 </div>
+                
+                <div data-role="fieldcontain" class="cbck">
+                   
+                <input type="checkbox" onchange="mute()" value="false" id="checky" data-role="flipswitch" style="z-index: 5; position: absolute: width: 21vw;" data-on-text="sound" data-off-text="mute" checked></div>
+        <div class="cloud" id="cld"></div>
+        <div class="moon"></div>
+        <div class="star" id="str"></div>
+			
+			
+
+	
+                </div>
+            </div>
+<!--    <div class="button" style="top: 50%; left: 50%;"><p>Start</p></div> !-->
+    </body>
+</html>

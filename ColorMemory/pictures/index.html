@@ -1,0 +1,272 @@
+<html>
+<head>
+    <link rel="stylesheet" href="styleCM.css">
+    <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" >!-->
+		<script src="http://code.jquery.com/jquery-1.11.2.min.js"> </script>
+		<link rel="stylesheet" href="themes/colorQueen.css" />
+    <link rel="stylesheet" href="themes/colorQueen.min.css"/>
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+		<script type="text/javascript" src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"> </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="../js/jquery-1.12.1.min.js"></script>
+     <script type="text/javascript">
+         
+"use strict";
+/*jslint browser: true*/
+
+       
+var disp;
+var colorr;
+var id;
+var c;
+var combinationIA = [];
+//var combinationSELF = [];    
+//var combinationIA1 = [];         
+var t = 0;
+var x = 0;
+var d;
+var xi = 0;
+var i = 0;
+var score = 0;
+    
+    
+
+function bottonss() {
+    score = 0;
+    for (t = 1; t < 4; t++) {
+        if (t === 1) {
+        
+            colorr = "bred";
+            id = "red";
+        }
+            else {
+                if (t === 2) {
+         
+                    colorr = "bgreen";
+                    id = "green";
+                }
+                    else {
+                
+                        colorr = "bblauw";
+                        id = "bleu";
+                    }
+            }
+      
+        document.write(" <div id='" + id + "' class='" + colorr + "' ></div>");
+            
+          
+           
+    }
+      document.write(" <div id='scoore' class='thescore' > score: 0 </div>");
+    //$("#score").append("score: 0 ");
+    $('#red').css({'visibility': 'hidden'});
+    $('#green').css({'visibility': 'hidden'});
+    $('#bleu').css({'visibility': 'hidden'});
+    addRondomComb();
+}
+ 
+       
+function addRondomComb() {
+    
+    $('#red').css({'visibility': 'hidden'});
+    $('#green').css({'visibility': 'hidden'});
+    $('#bleu').css({'visibility': 'hidden'});
+    c = Math.floor(Math.random() * 3) + 1;
+    combinationIA.push(c);
+            
+    x = combinationIA.length;
+    setTimeout(display(), 1000);
+    
+                    // setTimeout(toonNieks(), 3000);
+}
+function display(){
+  
+    disp =  setInterval( function(){
+               
+      switch(combinationIA[i]){
+     //add class
+    case 1: $("#back").addClass("challengR");
+   setTimeout(function(){$("#back").removeClass();}, 500);
+    break;
+    case 2: $("#back").addClass("challengG");
+     setTimeout(function(){$("#back").removeClass();}, 500);
+    break;
+    case 3: $("#back").addClass("challengB");
+     setTimeout(function(){$("#back").removeClass();}, 500);
+    break;
+    }
+    if(i === x)
+        {
+            setTimeout(function(){clearInterval(disp);
+           $('#red').css({'visibility': 'visible'} );
+           $('#green').css({'visibility': 'visible'} );
+           $('#bleu').css({'visibility': 'visible'} );
+             
+            i = 0;
+            $("#back").removeClass();          }, 1000);
+        }
+      else
+      {
+      i++;  
+      }
+    
+                }, 1000);
+    
+}
+
+     //setTimeout(toonNieks(), 3000);
+
+        // rondomComb(x);
+        
+        //array IA0 en ARRAY self dient voor nieks voor IA gewoon 
+// een  .push(c) en voor self gewoon vergelijken re.click if(IA[xi] === 1)
+        //functies bereiden en klaar maken
+         //:document.ready
+         $(document).ready(function(){
+             $('#back').click(function() {
+                 $("#scoore").empty();
+                 score = 0;
+                 combinationIA = [];
+                 x = combinationIA.length;
+                 $("#back").removeClass("retry");
+                 addRondomComb();});
+           $('#red').click(function() {
+            //combinationSELF[xi] = 1;
+               $('#red').css({'background-color': 'rgba(0, 0, 0, 1)'});
+               setTimeout(function(){ $('#red').css({'background-color': 'rgba(35, 35, 125, 1)'});}, 500);
+               if(combinationIA[xi] === 1){
+                   xi++;
+                  if(xi === x)
+                  {
+                     xi = 0;
+                      score++;
+                      $("#scoore").empty();
+                      $("#scoore").append("score: " + score);
+                    setTimeout(addRondomComb(), 1000); 
+                  }
+                  
+             
+               }
+               else
+               {
+               $("#back").addClass("retry");
+                 //  $(".retry").attr("id", "rtry");
+                  // $(".retry").append("score: " + score);
+               }
+             
+            
+              });
+         
+      
+         
+           $('#green').click(function() {
+               $('#green').css({'background-color': 'rgba(0, 0, 0, 1)'});
+               setTimeout(function(){ $('#green').css({'background-color': 'rgba(35, 35, 125, 1)'});}, 500);
+              if(combinationIA[xi] === 2)                   
+              {
+                  xi++;
+                if(xi === x)
+                 {
+                     xi = 0;
+                     score++;
+                     $("#scoore").empty();
+                     $("#scoore").append("score: " + score);
+                    setTimeout(addRondomComb(), 1000); 
+                 }
+               
+             
+              }
+             else
+             {
+              $("#back").addClass("retry");
+                 //$(".retry").append(score);
+             }     
+            });
+                          
+       
+         
+           $('#bleu').click(function() {
+                $('#bleu').css({'background-color': 'rgba(0, 0, 0, 1)'});
+               setTimeout(function(){ $('#bleu').css({'background-color': 'rgba(35, 35, 125, 1)'});}, 500);
+             if(combinationIA[xi] === 3){
+                 xi++;
+              if(xi === x)
+                 {
+                     xi = 0;
+                     score++;
+                     $("#scoore").empty();
+                     $("#scoore").append("score: " + score);
+                    setTimeout(addRondomComb(), 1000); 
+                 }
+                
+             
+            }
+            else
+            {
+              $("#back").addClass("retry");
+                //$(".retry").append("score: " + score);
+            }     
+            });
+               $(".retry").click(function() {
+            $(document).removeClass();
+                   bottonss();
+            
+            });
+         });
+
+
+         bottonss();
+         
+         
+         //setInterval(function(x){ for(h = 0; h < x; h++, 500)
+         //           {
+          //              if(combinationIA[h] === combinationSELF[h])
+           //                 {
+                                
+           //                     $('#back').prepend(" <p> ok </p>");
+           //                 }
+              //          else
+            //            {
+                            
+             //               h = x;
+             //               $('#back').prepend(" <p> retry </p>");
+                //        }
+                        
+                  //  }})
+         //if(i === x)
+           // {
+             //   for(h = 0; h < x; h++)
+               //     {
+                 //       if(combinationIA[h] === combinationSELF[h])
+                   //         {
+                                
+                     //           $('#back').prepend(" <p> ok </p>");
+                       //     }
+                        //else
+                        //{
+                            
+                          //  h = x;
+                            //$('#back').prepend(" <p> retry </p>");
+                        //}
+                        
+                    //}
+               //x++; 
+                
+             //}
+         //else
+           //  {
+             //    i++;
+                 
+             //}
+
+    </script>
+    </head>
+    <body>
+        <div id="back" class="back"></div>
+        <div class="cloud"></div>
+        <div class="moon"></div>
+        <div class="star"></div>
+<!--    <div class="button" style="top: 50%; left: 50%;"><p>Start</p></div> !-->
+    </body>
+</html>

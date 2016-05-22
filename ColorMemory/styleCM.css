@@ -1,0 +1,394 @@
+body{
+    background-color: rgba(35, 35, 125, 1);
+    padding: 0;
+    
+}
+#gme{
+    background-color: rgba(35, 35, 125, 1);
+    
+    height: 100%;
+    
+}
+#home{
+    background-color: rgba(35, 35, 125, 1);
+    
+    height: 100%;
+    
+}
+#HighSc{
+    background-color: rgba(35, 35, 125, 1);
+    
+    height: 100%;
+    
+}
+@keyframes desertdust {
+    from{background-position: 0vw 0 }
+    to {background-position: 100vw 0}
+    
+}
+div{
+    background-color: rba(255, 255, 255, 0.7);
+   z-index: 1;
+    
+}
+div.cloud{
+    z-index: -1;
+    background-image: url(pictures/bodd.png);
+    background-size: contain;
+    background-position: 0, 0;
+    background-repeat: repeat-x;
+    animation-name: desertdust;
+    animation-duration: 7s;
+    animation-timing-function: linear;
+   animation-iteration-count: infinite;
+    position: fixed;
+    bottom: 0%;
+    height: 17vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0);
+}
+div.cloud1{
+    z-index: -1;
+    background-image: url(pictures/bodd.png);
+    background-size: contain;
+    background-position: 0, 0;
+    background-repeat: repeat-x;
+    animation-name: desertdust;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+   animation-iteration-count: infinite;
+    position: fixed;
+    bottom: 0%;
+    height: 17vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0);
+}
+div.star{
+    z-index: -1;
+    background-image: url(pictures/star.png);
+    background-size: contain;
+    background-position: 0, 0;
+    background-repeat: repeat-x;
+    animation-name: starr;
+    animation-duration: 15s;
+    animation-timing-function: linear;
+   animation-iteration-count: infinite;
+    position: fixed;
+    bottom: 50vh;
+    height: 9vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0);
+}
+div.star1{
+    z-index: -1;
+    background-image: url(pictures/star.png);
+    background-size: contain;
+    background-position: 0, 0;
+    background-repeat: repeat-x;
+    animation-name: starr;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+   animation-iteration-count: infinite;
+    position: fixed;
+    bottom: 50vh;
+    height: 9vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0);
+}
+div.moon{
+    z-index: -1;
+    background-image: url(pictures/moonnn.png);
+    background-size: contain;
+    background-position: 0 0;
+    background-repeat: repeat-x;
+    animation-name: moonfly;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+   animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    position: fixed;
+    top: 0%;
+    height: 55vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0);
+}
+@keyframes moonfly {
+    from{background-position: 0vw 0 }
+    to {background-position: 0 0.5vh}
+    
+}
+@keyframes starr {
+    from{background-position: 0vw 0 }
+    to {background-position: 100vw 0}
+    
+}
+div.button{
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 1em;
+    position: absolute;
+    width: 15em;
+    height: 7em;
+    transition-property: width, height, box-shadow;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in;
+}
+div.button:hover
+{
+    
+    box-shadow: 0px 0px 29px rgba(125, 125, 255, 0.7);
+}
+div.button p{
+    color: rgba(0, 0, 0, 1);
+    font-size: 3em;
+    margin-left: 0.5em;
+}
+div.bred{
+    background-color: rgba(35, 35, 125, 1);
+    background-image: url(pictures/jlbbR.jpg);
+    background-position: center; 
+    background-repeat: no-repeat;
+   
+ border-radius: 1em;
+    position: absolute;
+    width: 21vw;
+    height: 19vh;
+    transition-property: width, height, box-shadow;
+    transition-duration: 0.05s;
+    transition-timing-function: ease-in;    
+top: 80%; 
+left: 15%; 
+background-color: rgba(255, 0, 0, 1);;
+}
+.bred:hover{
+box-shadow: 0px 0px 29px rgba(255, 255, 255, 0.7);
+}
+.bred:active{
+    
+    box-shadow: 0px 0px 29px rgba(125, 0, 0, 1);
+}
+div.bgreen{
+    background-color: rgba(35, 35, 125, 1);
+    background-image: url(pictures/jlbbG.jpg);
+    background-position: center; 
+    background-repeat: no-repeat;
+ border-radius: 1em;
+    position: absolute;
+   width: 21vw;
+    height: 19vh;
+    transition-property: width, height, box-shadow;
+    transition-duration: 0.05s;
+    transition-timing-function: ease-in;    
+top: 80%; 
+left: 40%; 
+background-color: rgba(0, 255, 0, 1);
+}
+.bgreen:hover{
+box-shadow: 0px 0px 29px rgba(255, 255, 255, 0.7);
+
+}
+.bgreen:active{
+ box-shadow: 0px 0px 29px rgba(0, 125, 125, 0.7);
+}
+
+    
+
+div.bblauw{
+    background-color: rgba(35, 35, 125, 1);
+    background-image: url(pictures/jlbbB.jpg);
+    background-position: center; 
+    background-repeat: no-repeat;
+ border-radius: 1em;
+    position: absolute;
+    width: 21vw;
+    height: 19vh;
+    transition-property: width, height, box-shadow;
+    transition-duration: 0.05s;
+    transition-timing-function: ease-in;    
+top: 80%; 
+left: 65%; 
+background-color: rgba(0, 0, 255, 1);
+}
+.bblauw:hover{
+box-shadow: 0px 0px 29px rgba(255, 255, 125, 0.7);
+
+}
+.bblauw:active{
+    box-shadow: 0px 0px 29px rgba(200, 200, 255, 0.9);
+    
+}
+
+div.challengR{
+    background-color: rgba(35, 35, 125, 1);
+    background-image: url(pictures/jlbbR.jpg);
+    background-position: center; 
+    background-repeat: no-repeat;
+    width: 27vw;
+    height: 21vh;
+position: absolute;
+top; 51%;
+left: 41%;
+background-color: rgba(255, 0, 0, 1);    
+}
+div.challengG{
+    background-color: rgba(35, 35, 125, 1);
+    background-image: url(pictures/jlbbG.jpg);
+    background-position: center; 
+    background-repeat: no-repeat;
+     width: 27vw;
+    height: 21vh;
+position: absolute;
+top; 51%;
+left: 41%;
+background-color: rgba(0, 255, 0, 1);    
+}
+div.challengB{
+    background-color: rgba(35, 35, 125, 1);
+    background-image: url(pictures/jlbbB.jpg);
+    background-position: center; 
+    background-repeat: no-repeat;
+     width: 27vw;
+    height: 21vh;
+position: absolute;
+top; 91%;
+left: 41%;
+background-color: rgba(0, 0, 255, 1);    
+}
+div.retry{
+    background-image: url(pictures/retry.png);
+    background-position: 50%, 50%; 
+    background-repeat: no-repeat;
+    
+width: 100%;
+height: 100%;
+background-color: rgba(255, 255, 255, 0.5);
+position: absolute;    
+ z-index: 3;   
+ font-family: cursive;
+font-size: 5em;    
+}
+div.thescore{
+    font-family: fantasy;
+    border-radius: 1.5em;
+    margin-top: 1em;
+    margin-right: 3vw;
+top: 21vh;
+right: 3vw;    
+width: 9vw;
+height: 3vh;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+background-color: rgba(255, 255, 255, 0);
+position: fixed;    
+ z-index: 4;   
+ font-family: cursive;
+    text-align: center;
+font-size: 100%;    
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 1); 
+}
+div.thebscore{
+    font-family: fantasy;
+    border-radius: 1.5em;
+    margin-top: 1em;
+    margin-right: 3vw;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+top: 31vh;
+right: 3vw;    
+width: 9vw;
+height: 3vh;
+background-color: rgba(255, 255, 255, 0);
+position: fixed;    
+ z-index: 4;   
+ font-family: cursive;
+    text-align: center;
+font-size: 100%;    
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 1); 
+    
+}
+div.retryy{
+    background-image: url(pictures/retryy.jpg);
+    background-position: 50%, 50%; 
+    background-repeat: no-repeat;
+    width 3em;
+    height: 3em;
+    border-radius: 1em;
+    position: fixed;
+    top: 50vw;
+    right: 50vh;
+    z-index: 3;
+    background-color: rgba(136, 0, 21, 1);
+    
+}
+div.cbt{
+position: absolute;
+     font-size: 5vh;
+    top: 50vh;
+    right: 50vw;
+    z-index: 5;
+}
+div.cbb{
+    font-size: 5vh;
+position: absolute;
+    top: 7vh;
+    left: 7vw;
+    z-index: 5;
+}
+div.tite{
+
+}
+div.timer{
+width: auto;
+height: auto;
+background-color: rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 15vh;
+    left: 45vw;
+    color: rgba(255, 255, 255, 1);
+    border-radius: 11vh;
+    box-shadow: 0px 0px 3vw rgba(125, 0, 35, 0.7);
+    font-size: 7vh;
+}
+div.highs{
+    position: absolute;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    padding-left: 5vh;
+    padding-right: 5vh;
+    top: 50vh;
+ text-align: center;
+    width: 95vw;
+    height: 50vh;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5em;
+    font-size: 5vh;
+    text-shadow: 0 0 5vw rgba(255, 125, 155, 1);
+    box-shadow: 0px 0px 35vh rgba(225, 95, 225, 0.95);
+}
+div.titli{
+    top:23vh;
+    left: 25vw;
+    width: 61vw;
+    height: 50vh;
+    background-image: url(pictures/CQTitlee.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+     animation-name: title;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+   animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    position: absolute;
+}
+@keyframes title {
+    from{top: 23vh }
+    to {top: 39vh}
+    
+}
+div.cbck{
+position: absolute;
+    top: 1vh;
+    right: 5vw;
+    z-index: 5;
+}

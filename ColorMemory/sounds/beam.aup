@@ -1,0 +1,28 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="beam_data" version="1.3.0" audacityversion="2.1.0" sel0="0.0183157895" sel1="1.8819473684" vpos="0" h="0.0000000000" zoom="218.3908045977" rate="48000.0" snapto="off" selectionformat="hh:mm:ss + milliseconds">
+	<tags>
+		<tag name="Encoded by" value="Lavf51.12.1"/>
+		<tag name="ARTIST" value="Abou Hafsa"/>
+	</tags>
+	<wavetrack name="beam" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="48000" gain="1.0" pan="0.0">
+		<waveclip offset="0.01831579">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="89454">
+				<waveblock start="0">
+					<simpleblockfile filename="e000036a.au" len="89454" min="-0.236551" max="0.246781" rms="0.060716"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="beam" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="48000" gain="1.0" pan="0.0">
+		<waveclip offset="0.01831579">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="89454">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000e61.au" len="89454" min="-0.236551" max="0.246781" rms="0.060716"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>
